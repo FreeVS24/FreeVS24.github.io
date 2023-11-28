@@ -67,6 +67,13 @@
       <div class="column is-four-fifths is-centered">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
+          <div class="content has-text-justified">
+            <img src="./static/images/WX20231125-133933@2x.png" width="100%">
+          <!-- <p>
+            <b>Multiview visual forecasting and planning by world model.</b>
+            At time step \( T \), the world model imagines the multiple futures at \(T+K\), and finds it is safe to keep going straight at \(T\). Then the model realizes that the ego car will be too close to the front car according to the imagination of time step \(T + 2K\), so it decides to change to the left lane for a safe overtaking.
+          </p> -->
+        </div>
           <p>
             In autonomous driving, predicting future events in advance and evaluating the foreseeable risks empowers autonomous vehicles to better plan their actions, enhancing safety and efficiency on the road.
             To this end, we propose <b>Drive-WM</b>, the first driving world model compatible with existing end-to-end planning models.
@@ -102,11 +109,12 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Method Overview</h2>
           <div class="content has-text-justified">
-            <img src="./static/images/WX20231125-133933@2x.png" width="100%">
+            <img src="./static/images/wm-pipeline.png" width="100%">
           <p>
-            <b>Multiview visual forecasting and planning by world model.</b>
-            At time step \( T \), the world model imagines the multiple futures at \(T+K\), and finds it is safe to keep going straight at \(T\). Then the model realizes that the ego car will be too close to the front car according to the imagination of time step \(T + 2K\), so it decides to change to the left lane for a safe overtaking.
-          </p>
+            <b>Overview of the proposed framework.</b>
+            <b>(a)</b> illustrates the training and inference pipeline of the proposed method.
+            <b>(b)</b> visualizes the unified conditions leveraged to control the generation of multi-view video.
+            <b>(c)</b> represents the probabilistic graph of factorized multiview generation. It takes the 3-view output from (a) as input to generate other views, enhancing the multi-view consistency.
         </div>
       </div>
     </div>
@@ -154,8 +162,7 @@
     </div>
   </div>
 </section>
-<section class="section">
-  <!-- Paper video. -->
+<!-- <section class="section">
  <div class="container is-max-desktop has-text-centered"> 
  <h2 class="title is-3">Other Datasets</h2>
     <div class="columns is-centered">
@@ -178,10 +185,28 @@
    </div>
  </div>
 
-</section>
+</section> -->
 <section class="section">
   <!-- Paper video. -->
  <div class="container is-max-desktop has-text-centered"> 
+  <h2 class="title is-3">Other Datasets</h2>
+    <div class="columns is-centered">
+         <div class="column">
+         <div class="content">
+          <div class="content has-text-justified">
+            <img src="./static/images/waymo_hdimg.png" width="100%">
+        </div>
+         </div>
+         </div>
+         
+         <div class="column">
+          <div class="content has-text-centered">
+            <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+              <source src="./static/videos/waymo_video.mp4" type="video/mp4">
+            </video>
+            </div>
+         </div>
+   </div>
  <h2 class="title is-3">Light Changes</h2>
     <div class="columns is-centered">
          <div class="column">
@@ -202,9 +227,47 @@
             </div>
          </div>
    </div>
+   <h2 class="title is-3">Weather Changes</h2>
+    <div class="columns is-centered">
+         <div class="column">
+         <div class="content">
+          <div class="content has-text-justified">
+            <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+              <source src="./static/videos/0093_sunny.mp4" type="video/mp4">
+            </video>
+        </div>
+         </div>
+         </div>
+         
+         <div class="column">
+          <div class="content has-text-centered">
+            <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+              <source src="./static/videos/0093_rainy.mp4" type="video/mp4">
+            </video>
+            </div>
+         </div>
    </div>
- </div>
-
+   <h2 class="title is-3">Control Foreground Object Layouts</h2>
+    <div class="columns is-centered">
+         <div class="column">
+         <div class="content">
+          <div class="content has-text-justified">
+            <img src="./static/images/move_obj.png" width="100%">
+        </div>
+         </div>
+         </div>
+   </div>
+   <h2 class="title is-3">GPT-4V as Reward Function</h2>
+    <div class="columns is-centered">
+         <div class="column">
+         <div class="content">
+          <div class="content has-text-justified">
+            <img src="./static/images/gpt4v.png" width="100%">
+        </div>
+         </div>
+         </div>
+   </div>
+   </div>
 </section>
 
 <footer class="footer">
