@@ -59,6 +59,25 @@
   </div>
 </section>
 
+<section>
+  <div class="hero-body">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-full-width is-centered">
+        <div class="content has-text-justified">
+            <img src="./static/images/WX20231125-133933@2x.png" width="100%">
+          <p>
+            <b>Multiview visual forecasting and planning by world model.</b>
+            At time step \( T \), the world model imagines the multiple futures at \(T+K\), and finds it is safe to keep going straight at \(T\). Then the model realizes that the ego car will be too close to the front car according to the imagination of time step \(T + 2K\), so it decides to change to the left lane for a safe overtaking.
+          </p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    <!--/ Abstract. -->
+</section>
 
 <section>
   <div class="container is-max-desktop">
@@ -67,13 +86,13 @@
       <div class="column is-four-fifths is-centered">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <div class="content has-text-justified">
-            <img src="./static/images/WX20231125-133933@2x.png" width="100%">
+          <!-- <div class="content has-text-justified">
+            <img src="./static/images/WX20231125-133933@2x.png" width="100%"> -->
           <!-- <p>
             <b>Multiview visual forecasting and planning by world model.</b>
             At time step \( T \), the world model imagines the multiple futures at \(T+K\), and finds it is safe to keep going straight at \(T\). Then the model realizes that the ego car will be too close to the front car according to the imagination of time step \(T + 2K\), so it decides to change to the left lane for a safe overtaking.
           </p> -->
-        </div>
+        <!-- </div> -->
           <p>
             In autonomous driving, predicting future events in advance and evaluating the foreseeable risks empowers autonomous vehicles to better plan their actions, enhancing safety and efficiency on the road.
             To this end, we propose <b>Drive-WM</b>, the first driving world model compatible with existing end-to-end planning models.
@@ -150,6 +169,26 @@
             <source src="./static/videos/0636.mp4"
                     type="video/mp4">
           </video>
+          </div>
+      </div>
+          <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/0093.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/0102.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/0636.mp4"
+                    type="video/mp4">
+          </video>
         </div>
         <div class="item item-blueshirt">
           <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
@@ -189,27 +228,8 @@
 <section class="section">
   <!-- Paper video. -->
  <div class="container is-max-desktop has-text-centered"> 
-  <h2 class="title is-3">Other Datasets</h2>
-    <div class="columns is-centered">
-         <div class="column">
-         <div class="content">
-          <div class="content has-text-centered">
-            <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
-              <source src="./static/videos/waymo.mp4" type="video/mp4">
-            </video>
-            </div>
-         </div>
-         </div>
-         
-         <div class="column">
-          <div class="content has-text-centered">
-            <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
-              <source src="./static/videos/waymo_video.mp4" type="video/mp4">
-            </video>
-            </div>
-         </div>
-   </div>
- <h2 class="title is-3">Light Changes</h2>
+  <h2 class="title is-3">Visual Element Control</h2>
+ <h2 class="title is-4">Light Changes</h2>
     <div class="columns is-centered">
          <div class="column">
          <div class="content">
@@ -229,7 +249,7 @@
             </div>
          </div>
    </div>
-   <h2 class="title is-3">Weather Changes</h2>
+   <h2 class="title is-4">Weather Changes</h2>
     <div class="columns is-centered">
          <div class="column">
          <div class="content">
@@ -249,7 +269,7 @@
             </div>
          </div>
    </div>
-   <h2 class="title is-3">Control Foreground Object Layouts</h2>
+   <h2 class="title is-4">Control Foreground Object Layouts</h2>
     <div class="columns is-centered">
          <div class="column">
          <div class="content">
@@ -259,7 +279,7 @@
          </div>
          </div>
    </div>
-   <h2 class="title is-3">Action Condition</h2>
+   <h2 class="title is-4">Action Condition</h2>
    <div class="columns is-centered">
         <div class="column">
         <div class="content">
@@ -279,19 +299,60 @@
            </div>
         </div>
   </div>
-   <h2 class="title is-3">GPT-4V as Reward Function</h2>
-    <div class="columns is-centered">
-         <div class="column">
-         <div class="content">
-          <div class="content has-text-justified">
-            <img src="./static/images/gpt4v.png" width="100%">
-        </div>
-         </div>
-         </div>
-   </div>
+
    </div>
 </section>
-
+<section class="section">
+  <!-- Paper video. -->
+ <div class="container is-max-desktop has-text-centered"> 
+<h2 class="title is-3">Other Datasets</h2>
+<div class="columns is-centered">
+     <div class="column">
+     <div class="content">
+      <div class="content has-text-centered">
+        <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/waymo.mp4" type="video/mp4">
+        </video>
+        </div>
+     </div>
+     </div>
+     
+     <div class="column">
+      <div class="content has-text-centered">
+        <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/waymo_video.mp4" type="video/mp4">
+        </video>
+        </div>
+     </div>
+</div>
+</div>
+</section>
+<section class="section">
+  <!-- Paper video. -->
+ <div class="container is-max-desktop has-text-centered"> 
+ <h2 class="title is-3">World Model for End-to-End Planning</h2>
+ <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths is-centered">
+      <div class="content has-text-justified">
+          <img src="./static/images/planning_tree.png" width="100%">
+        <p>
+          <b>End-to-end planning pipeline with our world model.</b> We display the components of our planning pipeline at the top and illustrate the decision-making process in the planning tree using image-based rewards at the bottom.
+        </p>
+  </div>
+</div>
+</div>
+ <h2 class="title is-4">GPT-4V as Reward Function</h2>
+  <div class="columns is-centered">
+       <div class="column">
+       <div class="content">
+        <div class="content has-text-justified">
+          <img src="./static/images/gpt4v.png" width="100%">
+      </div>
+       </div>
+       </div>
+ </div>
+</div>
+</section>
 <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
