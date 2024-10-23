@@ -6,7 +6,7 @@
         content="FreeVS: Generative View Synthesis on Free Driving Trajectory">
   <meta name="keywords" content="Ba^2-Det">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FreeVS: Generative View Synthesis on Free Driving Trajector</title>
+  <title>FreeVS: Generative View Synthesis on Free Driving Trajectory</title>
 
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQCWF52Y54"></script>
@@ -58,14 +58,14 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Driving into the Future: Multiview Visual Forecasting and Planning with World Model for Autonomous Driving</h1>
-          <h2 class="title is-3">CVPR 2024</h2>
+          <!-- <h2 class="title is-3">CVPR 2024</h2> -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
             <a href="https://github.com/esdolo">Qitai Wang</a>*<sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://robertwyq.github.io/">Yuqi Wang</a>*<sup>1</sup>,</span>
+              <a href="https://lue.fan/">Lue Fan</a>*<sup>1,2</sup>,
             <span class="author-block">
-              <a href="https://lue.fan/">Lue Fan</a>*<sup>1</sup>,
+              <a href="https://robertwyq.github.io/">Yuqi Wang</a>*<sup>1</sup>,</span>
             </span>
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=iLOoUqIAAAAJ">Yuntao Chen</a>&dagger;<sup>2</sup>,
@@ -146,10 +146,9 @@
     <div class="columns is-centered has-text-centered">
     <div class="column is-full-width is-centered">
         <div class="content has-text-justified">
-            <img src="./static/images/WX20231125-133933@2x.png" width="100%">
+            <img src="./static/images/FreeVS_pipeline.png" width="100%">
           <p>
-            <b>Multiview visual forecasting and planning by world model.</b>
-            At time step \( T \), the world model imagines the multiple futures at \(T+K\), and finds it is safe to keep going straight at \(T\). Then the model realizes that the ego car will be too close to the front car according to the imagination of time step \(T + 2K\), so it decides to change to the left lane for a safe overtaking.
+            <b>The pipeline of FreeVS.</b>
           </p>
     </div>
   </div>
@@ -174,12 +173,19 @@
           </p> -->
         <!-- </div> -->
           <p>
-            In autonomous driving, predicting future events in advance and evaluating the foreseeable risks empowers autonomous vehicles to better plan their actions, enhancing safety and efficiency on the road.
-            To this end, we propose <b>Drive-WM</b>, the first driving world model compatible with existing end-to-end planning models.
-            Through a joint spatial-temporal modeling facilitated by view factorization, our model is the first to generate high-fidelity multiview videos in driving scenes.
-            Building on its powerful generation ability, we showcase the potential of applying the world model for safe driving planning for the first time. 
-            Particularly, our <b>Drive-WM</b> enables driving into multiple futures based on distinct driving maneuvers, and determines the optimal trajectory according to the image-based rewards.
-            Evaluation on real-world driving datasets verifies that our method could generate high-quality, consistent, and controllable multiview videos, opening up possibilities for real-world simulations and safe planning.
+            Existing reconstruction-based novel view synthesis methods for driving scenes
+            focus on synthesizing camera views along the recorded trajectory of the ego vehicle. Their image rendering performance will severely degrade on viewpoints
+            falling out of the recorded trajectory, where camera rays are untrained. We propose <b>FreeVS</b>, a novel fully generative approach that can synthesize camera views
+            on free new trajectories in real driving scenes. To control the generation results
+            to be 3D consistent with the real scenes and accurate in viewpoint pose, we propose the pseudo-image representation of view priors to control the generation process. Viewpoint transformation simulation is applied on pseudo-images to simulate camera movement in each direction. Once trained, <b>FreeVS</b> can be applied
+            to any validation sequences without reconstruction process and synthesis views
+            on novel trajectories. Moreover, we propose two new challenging benchmarks
+            tailored to driving scenes, which are novel camera synthesis and novel trajectory
+            synthesis, emphasizing the freedom of viewpoints. Given that no ground truth
+            images are available on novel trajectories, we also propose to evaluate the consistency of images synthesized on novel trajectories with 3D perception models.
+            Experiments on the Waymo Open Dataset show that <b>FreeVS</b> has a strong image
+            synthesis performance on both the recorded trajectories and novel trajectories.
+            The code will be released.
           </p>
         </div>
       </div>
@@ -202,97 +208,17 @@
 </section> -->
   
 <section class="section">
-   <div class="container is-max-desktop">
-    <!-- Methodology. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Method Overview</h2>
-          <div class="content has-text-justified">
-            <img src="./static/images/wm-pipeline.png" width="100%">
-          <p>
-            <b>Overview of the proposed framework.</b>
-            <b>(a)</b> illustrates the training and inference pipeline of the proposed method.
-            <b>(b)</b> visualizes the unified conditions leveraged to control the generation of multi-view video.
-            <b>(c)</b> represents the probabilistic graph of factorized multiview generation. It takes the 3-view output from (a) as input to generate other views, enhancing the multi-view consistency.
-        </div>
-      </div>
-    </div>
-    <!--/ Methodology. -->
-  </div>
-</section>
-<section class="section">
-<!-- <section class="hero is-light is-small"> -->
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h2 class="title is-3">Generation of Diverse Multiview Videos</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/0519.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/0093.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/0102.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/0636.mp4"
-                    type="video/mp4">
-          </video>
-          </div>
-      </div>
-          <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/0914.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/0039.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/0522.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/0559.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section">
   <!-- Paper video. -->
  <div class="container is-max-desktop has-text-centered"> 
-<h2 class="title is-3">Generation of Multiple Plausible Futures</h2>
+<h2 class="title is-3">Free-Trajectory View Generation Demos</h2>
 <div class="columns is-centered">
   <div class="column">
   <div class="content">
     
    <div class="content has-text-centered">
-    <h2 class="title is-4">Scene 1 (Turn left)</h2>
+    <h2 class="title is-4">Scene 1 (GT Video)</h2>
      <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
-       <source src="./static/videos/demo1_left_stitched.mp4" type="video/mp4">
+       <source src="./static/videos/4702302448560822815_927_380_947_380_FRONT_gt.mp4" type="video/mp4">
      </video>
  </div>
   </div>
@@ -301,9 +227,9 @@
   <div class="column">
     
    <div class="content has-text-centered">
-    <h2 class="title is-4">Scene 1 (Turn right)</h2>
+    <h2 class="title is-4">Scene 1 (Novel Trajectory)</h2>
      <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
-       <source src="./static/videos/demo1_right_stitched.mp4" type="video/mp4">
+       <source src="./static/videos/4702302448560822815_927_380_947_380_FRONT.mp4" type="video/mp4">
      </video>
      </div>
   </div>
